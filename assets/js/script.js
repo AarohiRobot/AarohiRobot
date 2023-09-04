@@ -31,7 +31,18 @@ function moveStick(e) {
     const centerY = rect.top + rect.height / 2;
     const deltaX = e.clientX - centerX;
     const deltaY = e.clientY - centerY;
+    const distance = Math.sqrt(deltaX ** 2 + deltaY ** 2);
+    const maxDistance = rect.width / 2 - stick.clientWidth / 2;
+
+    if (distance <= maxDistance) {
+        stick.style.transform = `translate(-50%, -50%) translate(${deltaX}px, ${deltaY}px)`;
+    } else {
+        const angle = Math.atan2(deltaY, deltaX);
+        const newX = Math.cos(angle) * maxDistance;
+        const newY = Math.sin(angle) * maxDistance;
+        stick.style.transform = `translate(-50%, -50%) translate(${newX}px, ${newY}px)`;
+    }
+
     const angle = Math.atan2(deltaY, deltaX) * (180 / Math.PI);
-    stick.style.transform = `translate(-50%, -50%) translate(${deltaX}px, ${deltaY}px)`;
     angleDisplay.textContent = `Angle: ${angle.toFixed(2)}°`;
 }
