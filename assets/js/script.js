@@ -4,7 +4,7 @@
     const angleDisplay = document.getElementById("angle");
 
     let isDragging = false;
-
+  
     joystick.addEventListener("mousedown", (e) => {
         isDragging = true;
         joystick.style.transition = "none";
