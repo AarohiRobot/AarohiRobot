@@ -31,7 +31,7 @@ function moveStick(e) {
     const centerY = rect.top + rect.height / 2;
     const deltaX = e.clientX - centerX;
     const deltaY = e.clientY - centerY;
-    const distance = Math.sqrt(deltaX ** 2 + deltaY ** 2);
+    const distance = Math.sqrt(deltaX ** 2 + deltaY ** 2);  
     const maxDistance = rect.width / 2 - stick.clientWidth / 2;
 
     if (distance <= maxDistance) {
