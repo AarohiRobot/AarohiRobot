@@ -4,9 +4,9 @@ const stick = document.getElementById("stick");
 const angleDisplay = document.getElementById("angle");
 
 let isDragging = false;
- 
-joystick.addEventListener("mousedown", (e) => {  
-    isDragging = true;   
+
+joystick.addEventListener("mousedown", (e) => {
+    isDragging = true;
     joystick.style.transition = "none";
     stick.style.transition = "none";
     moveStick(e);
