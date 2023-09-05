@@ -23,7 +23,6 @@ document.addEventListener("mouseup", () => {
     joystick.style.transition = "all 0.2s ease";
     stick.style.transition = "all 0.2s ease";
     stick.style.transform = "translate(-50%, -50%)";
-    // Here, you can send a stop command to your robot (set all wheel speeds to 0).
 });
 
 function moveStick(e) {
@@ -32,27 +31,12 @@ function moveStick(e) {
     const centerY = rect.top + rect.height / 2;
     const deltaX = e.clientX - centerX;
     const deltaY = e.clientY - centerY;
+    const distance = Math.min(Math.hypot(deltaX, deltaY), rect.width / 2 - stick.clientWidth / 2);
     const angle = Math.atan2(deltaY, deltaX) * (180 / Math.PI);
 
-    // Calculate linear velocity (Vx) and angular velocity (Omega) based on joystick position
-    // You'll need to map joystick position to robot velocities here
+    const newX = centerX + distance * Math.cos(angle);
+    const newY = centerY + distance * Math.sin(angle);
 
-    // Example: Map joystick position to linear velocity and angular velocity
-    const maxJoystickDistance = rect.width / 2;
-    const maxLinearVelocity = 1.0; // Adjust as needed
-    const maxAngularVelocity = 1.0; // Adjust as needed
-
-    // Scale the joystick position to match your robot's requirements
-    const scaledDeltaX = (deltaX / maxJoystickDistance);
-    const scaledDeltaY = (deltaY / maxJoystickDistance);
-    
-    // Apply scaling to Vx and Omega
-    const Vx = scaledDeltaY * maxLinearVelocity;
-    const Omega = scaledDeltaX * maxAngularVelocity;
-
-    // Display the calculated angle
+    stick.style.transform = `translate(-50%, -50%) translate(${newX - centerX}px, ${newY - centerY}px)`;
     angleDisplay.textContent = `Angle: ${angle.toFixed(2)}°`;
-
-    // Here, you can send the calculated Vx and Omega to control your robot.
-    // You may need to communicate with your robot's hardware or software to send commands.
 }
