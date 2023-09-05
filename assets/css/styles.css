@@ -8,6 +8,10 @@ body {
     margin: 0;
 }
 
+.joystick-container {
+    position: relative;
+}
+
 .joystick {
     width: 150px;
     height: 150px;
@@ -17,7 +21,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
 }
 
 .stick {
@@ -26,8 +29,5 @@ body {
     background-color: #e74c3c;
     border-radius: 50%;
     position: absolute;
-}
-
-.angle {
-    margin-top: 20px;
+    cursor: pointer;
 }
