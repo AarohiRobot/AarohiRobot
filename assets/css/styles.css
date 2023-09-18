@@ -1,21 +1,38 @@
-/* Add CSS styling for buttons */
+/* Add CSS styling for buttons and circular container */
 body {
     text-align: center;
+    font-family: Arial, sans-serif;
 }
-.button-container {
+.circle-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.circle {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: #3498db;
+    transform: rotate(-45deg);
 }
 .button {
     width: 80px;
     height: 80px;
-    margin: 10px;
+    margin: 5px;
     text-align: center;
     line-height: 80px;
-    font-size: 18px;
-    background-color: #3498db;
-    color: #fff;
+    font-size: 14px;
+    background-color: #fff;
+    color: #3498db;
     border: none;
+    border-radius: 50%;
     cursor: pointer;
+}
+#output {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #3498db;
 }
