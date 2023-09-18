@@ -3,36 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joystick</title>
-    
-    <link href="assets/css/styles.css" rel="stylesheet">
+    <title>Direction Control Pad</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-    <div class="joystick" id="joystick">
-        <div class="stick" id="stick"></div>
+    <h1>Direction Control Pad</h1>
+    <p>Click on a button to select a direction:</p>
+    
+    <!-- Create buttons for each direction -->
+    <div class="button-container">
+        <button class="button" id="north">North</button>
+        <button class="button" id="northeast">NE</button>
+        <button class="button" id="east">East</button>
+        <button class="button" id="southeast">SE</button>
+        <button class="button" id="south">South</button>
+        <button class="button" id="southwest">SW</button>
+        <button class="button" id="west">West</button>
+        <button class="button" id="northwest">NW</button>
     </div>
-     <div class="angle" id="angle">Angle: 0°</div>
-     <script src="assets/js/script.js"></script>
-</body>
-</html>/* Add CSS styling for buttons */
-body {
-    text-align: center;
-}
-.button-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-.button {
-    width: 80px;
-    height: 80px;
-    margin: 10px;
-    text-align: center;
-    line-height: 80px;
-    font-size: 18px;
-    background-color: #3498db;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-}
 
+    <!-- JavaScript to capture button clicks -->
+    <script src="script.js"></script>
+</body>
+</html>
