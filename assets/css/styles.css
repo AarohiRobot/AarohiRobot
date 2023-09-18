@@ -1,33 +1,21 @@
-/* styles.css */
+/* Add CSS styling for buttons */
 body {
+    text-align: center;
+}
+.button-container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-wrap: wrap;
     justify-content: center;
-    height: 100vh;
-    margin: 0;
 }
-
-.joystick-container {
-    position: relative;
-}
-
-.joystick {
-    width: 150px;
-    height: 150px;
+.button {
+    width: 80px;
+    height: 80px;
+    margin: 10px;
+    text-align: center;
+    line-height: 80px;
+    font-size: 18px;
     background-color: #3498db;
-    border-radius: 50%;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.stick {
-    width: 50px;
-    height: 50px;
-    background-color: #e74c3c;
-    border-radius: 50%;
-    position: absolute;
+    color: #fff;
+    border: none;
     cursor: pointer;
 }
