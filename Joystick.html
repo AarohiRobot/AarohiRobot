@@ -1,28 +1,35 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Direction Control Pad</title>
+    <title>Circular Control Pad</title>
     <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
 </head>
 <body>
-    <h1>Direction Control Pad</h1>
-    <p>Click on a button to select a direction:</p>
+    <h1>Circular Control Pad</h1>
     
-    <!-- Create buttons for each direction -->
-    <div class="button-container">
-        <button class="button" id="north">North</button>
-        <button class="button" id="northeast">NE</button>
-        <button class="button" id="east">East</button>
-        <button class="button" id="southeast">SE</button>
-        <button class="button" id="south">South</button>
-        <button class="button" id="southwest">SW</button>
-        <button class="button" id="west">West</button>
-        <button class="button" id="northwest">NW</button>
+    <!-- Create a container for the circular pad -->
+    <div class="circle-container">
+        <!-- Create a circular button pad -->
+        <div class="circle">
+            <button class="button" id="north">North</button>
+            <button class="button" id="northeast">NE</button>
+            <button class="button" id="east">East</button>
+            <button class="button" id="southeast">SE</button>
+            <button class="button" id="south">South</button>
+            <button class="button" id="southwest">SW</button>
+            <button class="button" id="west">West</button>
+            <button class="button" id="northwest">NW</button>
+        </div>
     </div>
+
+    <!-- Display the output -->
+    <div id="output"></div>
 
     <!-- JavaScript to capture button clicks -->
     <script src="assets/js/script.js"></script>
 </body>
 </html>
+
