@@ -4,7 +4,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-} 
+}
 .circle-container {
     display: flex;
     justify-content: center;
@@ -14,19 +14,20 @@ body {
 .circle {
     display: flex;
     flex-wrap: wrap;
-    width: 200px;
-    height: 200px;
+    justify-content: center;
+    align-content: center;
+    width: 300px;
+    height: 300px;
     border-radius: 50%;
     background-color: #3498db;
     position: relative;
-    transform: rotate(-45deg);
 }
 .button {
     width: 60px;
     height: 60px;
     text-align: center;
     line-height: 60px;
-    font-size: 14px;
+    font-size: 18px;
     background-color: #fff;
     color: #3498db;
     border: none;
@@ -36,14 +37,14 @@ body {
     transform-origin: center;
     transition: background-color 0.3s ease;
 }
-.button:nth-child(1) { transform: rotate(0deg) translate(75px) rotate(0deg); }
-.button:nth-child(2) { transform: rotate(45deg) translate(75px) rotate(-45deg); }
-.button:nth-child(3) { transform: rotate(90deg) translate(75px) rotate(-90deg); }
-.button:nth-child(4) { transform: rotate(135deg) translate(75px) rotate(-135deg); }
-.button:nth-child(5) { transform: rotate(180deg) translate(75px) rotate(-180deg); }
-.button:nth-child(6) { transform: rotate(225deg) translate(75px) rotate(-225deg); }
-.button:nth-child(7) { transform: rotate(270deg) translate(75px) rotate(-270deg); }
-.button:nth-child(8) { transform: rotate(315deg) translate(75px) rotate(-315deg); }
+.button:nth-child(1) { top: 0; left: 50%; transform: translateX(-50%); }
+.button:nth-child(2) { top: 14%; left: 86%; }
+.button:nth-child(3) { top: 50%; left: 100%; transform: translateX(-100%); }
+.button:nth-child(4) { top: 86%; left: 86%; }
+.button:nth-child(5) { top: 100%; left: 50%; transform: translateY(-100%); }
+.button:nth-child(6) { top: 86%; left: 14%; }
+.button:nth-child(7) { top: 50%; left: 0; transform: translateY(-50%); }
+.button:nth-child(8) { top: 14%; left: 14%; }
 #output {
     margin-top: 20px;
     font-size: 18px;
