@@ -37,13 +37,14 @@ body {
     transition: background-color 0.3s ease;
     transform: rotate(0deg) translateX(150px) rotate(0deg);
 }
-.button:nth-child(2) { transform: rotate(45deg) translateX(150px) rotate(-45deg); }
-.button:nth-child(3) { transform: rotate(90deg) translateX(150px) rotate(-90deg); }
-.button:nth-child(4) { transform: rotate(135deg) translateX(150px) rotate(-135deg); }
-.button:nth-child(5) { transform: rotate(180deg) translateX(150px) rotate(-180deg); }
-.button:nth-child(6) { transform: rotate(225deg) translateX(150px) rotate(-225deg); }
-.button:nth-child(7) { transform: rotate(270deg) translateX(150px) rotate(-270deg); }
-.button:nth-child(8) { transform: rotate(315deg) translateX(150px) rotate(-315deg); }
+button:nth-child(1) { transform: rotate(-45deg) translate(30px) rotate(-45deg); }
+.button:nth-child(2) { transform: rotate(0deg) translate(30px) rotate(-90deg); }
+.button:nth-child(3) { transform: rotate(45deg) translate(30px) rotate(-135deg); }
+.button:nth-child(4) { transform: rotate(90deg) translate(30px) rotate(-180deg); }
+.button:nth-child(5) { transform: rotate(135deg) translate(30px) rotate(-225deg); }
+.button:nth-child(6) { transform: rotate(180deg) translate(30px) rotate(-270deg); }
+.button:nth-child(7) { transform: rotate(225deg) translate(30px) rotate(-315deg); }
+.button:nth-child(8) { transform: rotate(270deg) translate(30px) rotate(-360deg); }
 #output {
     margin-top: 20px;
     font-size: 18px;
