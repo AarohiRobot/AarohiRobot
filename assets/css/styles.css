@@ -18,7 +18,7 @@ body {
     height: 200px;
     border-radius: 50%;
     background-color: #3498db;
-    position: relative;
+    position: center;
     transform: rotate(-45deg);
 }
 .button {
@@ -27,7 +27,7 @@ body {
     text-align: center;
     line-height: 60px;
     font-size: 14px;
-    background-color: #fff;
+    background-color: #328ac6;
     color: #3498db;
     border: none;
     border-radius: 50%;
