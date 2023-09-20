@@ -4,7 +4,7 @@ const mqtt = require('mqtt');
 const buttons = document.querySelectorAll('.button');
 const output = document.getElementById('output');
 let selectedButton = null;
-
+  
 // Define your HiveMQ Cloud MQTT credentials
 const mqttUsername = "aarohi"; // Replace with your HiveMQ Cloud username
 const mqttPassword = "Aarohi@pro1"; // Replace with your HiveMQ Cloud password
