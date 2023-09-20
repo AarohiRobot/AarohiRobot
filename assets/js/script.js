@@ -6,7 +6,7 @@ let selectedButton = null;
 
 // Define your Adafruit IO credentials
 const adafruitUsername = "aarohi"; // Replace with your Adafruit IO username
-const adafruitKey = "aio_kSMP641WxZw36zAp8hevKwmhaFvp"; // Replace with your Adafruit IO key
+const adafruitKey = "aio_XoxE66xi9TW9KrfN5E63hraThUT3"; // Replace with your Adafruit IO key
 const adafruitTopic = "your_topic"; // Replace with your desired Adafruit IO topic   
 
 // MQTT client setup for Adafruit IO    
