@@ -5,7 +5,7 @@ const output = document.getElementById('output');
 let selectedButton = null;
 
 // Retrieve your Adafruit IO API key from an environment variable
-const adafruitKey = process.env.ADAFRUIT_IO_KEY; // Replace with your environment variable name
+const adafruitKey = process.env.aio_BihB20qUaVwCuSLXQIFhy5qRgEYE; // Replace with your environment variable name
 
 // Define your Adafruit IO username and topic
 const adafruitUsername = "aarohi"; // Replace with your Adafruit IO username
