@@ -4,12 +4,14 @@ const buttons = document.querySelectorAll('.button');
 const output = document.getElementById('output');
 let selectedButton = null;
 
-// Define your Adafruit IO credentials
-const adafruitUsername = "aarohi"; // Replace with your Adafruit IO username
-const adafruitKey = "aio_XoxE66xi9TW9KrfN5E63hraThUT3"; // Replace with your Adafruit IO key
-const adafruitTopic = "your_topic"; // Replace with your desired Adafruit IO topic   
+// Retrieve your Adafruit IO API key from an environment variable
+const adafruitKey = process.env.ADAFRUIT_IO_KEY; // Replace with your environment variable name
 
-// MQTT client setup for Adafruit IO    
+// Define your Adafruit IO username and topic
+const adafruitUsername = "aarohi"; // Replace with your Adafruit IO username
+const adafruitTopic = "your_topic"; // Replace with your desired Adafruit IO topic
+
+// MQTT client setup for Adafruit IO
 const brokerUrl = "io.adafruit.com";
 const port = 8883;
 
@@ -24,16 +26,13 @@ mqttClient.onConnectionLost = function (responseObject) {
 
 mqttClient.connect({
     onSuccess: onConnect,
-    userName: aarohi,
-    password: aarohi,
+    userName: adafruitUsername,
+    password: adafruitKey,
     useSSL: true,
 });
 
 function onConnect() {
     console.log("Connected to Adafruit IO MQTT broker");
-
-    // Subscribe to your desired Adafruit IO topic (if needed)
-    // mqttClient.subscribe(adafruitTopic);
 }
 
 function sendCommand(command) {
@@ -47,11 +46,11 @@ buttons.forEach(button => {
     button.addEventListener('click', () => {
         const direction = button.id;
         output.textContent = `You clicked ${direction}`;
-        
+
         if (selectedButton) {
             selectedButton.style.backgroundColor = "#fff"; // Reset previously selected button
         }
-        
+
         selectedButton = button;
         selectedButton.style.backgroundColor = "#ff9900"; // Highlight the clicked button
 
