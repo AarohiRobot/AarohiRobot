@@ -15,9 +15,9 @@ const brokerUrl = "62aa3c9521834e62b0fbdd628046ee46.s1.eu.hivemq.cloud";
 
 // Create an MQTT client instance
 const mqttClient = mqtt.connect(brokerUrl, {
-  username: aarohi,
-  password: Aarohi@pro1,
-  clientId: 62aa3c9521834e62b0fbdd628046ee46,
+  username: "aarohi",
+  password: "Aarohi@pro1",
+  clientId: "62aa3c9521834e62b0fbdd628046ee46",
   clean: true // Set to true to start with a clean session
 });
 
