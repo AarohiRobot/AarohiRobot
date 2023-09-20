@@ -1,4 +1,6 @@
+import mqtt from 'assets/js/mqtt.js'; // Adjust the path to the correct location of mqtt.js
 // JavaScript to capture button clicks and publish messages using MQTT.js
+
 const buttons = document.querySelectorAll('.button');
 const output = document.getElementById('output');
 let selectedButton = null;
