@@ -8,7 +8,7 @@ let selectedButton = null;
 // Define your HiveMQ Cloud MQTT credentials
 const mqttUsername = "aarohi"; // Replace with your HiveMQ Cloud username
 const mqttPassword = "Aarohi@pro1"; // Replace with your HiveMQ Cloud password
-const clientId = "web_" + parseInt(Math.random() * 100, 10);
+const clientId = "web_" + parseInt(Math.random() * 100, 10);             
 
 // Define the MQTT broker URL and port (for HiveMQ Cloud)
 const brokerUrl = "62aa3c9521834e62b0fbdd628046ee46.s1.eu.hivemq.cloud";
