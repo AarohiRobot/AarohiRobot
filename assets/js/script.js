@@ -11,7 +11,7 @@ const adafruitTopic = "your_topic"; // Replace with your desired Adafruit IO top
 
 // MQTT client setup for Adafruit IO
 const brokerUrl = "io.adafruit.com";
-const port = 1883;
+const port = 8883;
 
 const clientId = "web_" + parseInt(Math.random() * 100, 10);
 const mqttClient = new Paho.MQTT.Client(brokerUrl, port, clientId);
@@ -38,7 +38,7 @@ function onConnect() {
 
 function sendCommand(command) {
     const message = new Paho.MQTT.Message(command);
-    message.destinationName = `/${adafruitUsername}/feeds/${adafruitTopic}`; // Publish to your Adafruit IO topic
+    message.destinationName = `/$aarohi/feeds/$your_topic`; // Publish to your Adafruit IO topic
     mqttClient.send(message);
     console.log("Sent command: " + command);
 }
