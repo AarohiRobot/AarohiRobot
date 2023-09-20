@@ -11,7 +11,7 @@ const adafruitTopic = "your_topic"; // Replace with your desired Adafruit IO top
 
 // MQTT client setup for Adafruit IO
 const brokerUrl = "io.adafruit.com";
-const port = 8883;
+const port = 1883;
 
 const clientId = "web_" + parseInt(Math.random() * 100, 10);
 const mqttClient = new Paho.MQTT.Client(brokerUrl, port, clientId);
