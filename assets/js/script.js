@@ -1,22 +1,11 @@
-// JavaScript to capture button clicks and publish messages to Adafruit IO
-
+// JavaScript to capture button clicks and publish messages to HiveMQ Cloud MQTT broker
 const buttons = document.querySelectorAll('.button');
 const output = document.getElementById('output');
 let selectedButton = null;
 
-// Retrieve your Adafruit IO API key from an environment variable
-const adafruitKey = process.env.aio_BihB20qUaVwCuSLXQIFhy5qRgEYE; // Replace with your environment variable name
-
-// Define your Adafruit IO username and topic
-const adafruitUsername = "aarohi"; // Replace with your Adafruit IO username
-const adafruitTopic = "your_topic"; // Replace with your desired Adafruit IO topic
-
-// MQTT client setup for Adafruit IO
-const brokerUrl = "io.adafruit.com";
-const port = 8883;
-
-const clientId = "web_" + parseInt(Math.random() * 100, 10);
-const mqttClient = new Paho.MQTT.Client(brokerUrl, port, clientId);
+// Define your HiveMQ Cloud broker connection details
+const mqttBroker = "62aa3c9521834e62b0fbdd628046ee46.s1.eu.hivemq.cloudt"; // Replace with your HiveMQ Cloud instance URL and port
+const mqttClient = new Paho.MQTT.Client(mqttBroker, "web_" + parseInt(Math.random() * 100, 10));
 
 mqttClient.onConnectionLost = function (responseObject) {
     if (responseObject.errorCode !== 0) {
@@ -26,18 +15,22 @@ mqttClient.onConnectionLost = function (responseObject) {
 
 mqttClient.connect({
     onSuccess: onConnect,
-    userName: adafruitUsername,
-    password: adafruitKey,
-    useSSL: true,
+    useSSL: true, // Set to true for secure communication
+    userName: "aarohi", // Replace with your HiveMQ Cloud username
+    password: "Aarohi@pro1", // Replace with your HiveMQ Cloud password
 });
 
 function onConnect() {
-    console.log("Connected to Adafruit IO MQTT broker");
+    console.log("Connected to HiveMQ Cloud MQTT broker");
+
+    // Subscribe to MQTT topics (if needed)
+    // mqttClient.subscribe("your_topic");
 }
 
 function sendCommand(command) {
+    // Publish the command to a specific MQTT topic
     const message = new Paho.MQTT.Message(command);
-    message.destinationName = `/$aarohi/feeds/$your_topic`; // Publish to your Adafruit IO topic
+    message.destinationName = "your_topic"; // Replace with the topic you want to publish to
     mqttClient.send(message);
     console.log("Sent command: " + command);
 }
