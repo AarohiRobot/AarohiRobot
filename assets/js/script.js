@@ -42,32 +42,34 @@ buttons.forEach(button => {
   });
 });
 */
-var mqtt = require('mqtt')
+import * as mqtt from 'mqtt';
 
-var options = {
-    host: '95a0778f498e4b0282b640b05341507c.s1.eu.hivemq.cloud',
+const options = {
+    host: '62aa3c9521834e62b0fbdd628046ee46.s1.eu.hivemq.cloud',
     port: 8883,
     protocol: 'mqtts',
-    username: 'Aryan',
-    password: 'AryanMore123'
+    username: 'aarohi',
+    password: 'Aarohi@pro1'
 }
 
-// initialize the MQTT client
-var client = mqtt.connect(options);
+// Initialize the MQTT client
+const client = mqtt.connect(options);
 
-// setup the callbacks
-client.on('connect', function () {
-    console.log('Connected');
+// Setup the callbacks
+client.on('connect', () => {
+    console.log('Connected to HiveMQ Cloud MQTT broker');
+    // Subscribe to a topic if needed
+    // client.subscribe('your-topic');
 });
 
-client.on('error', function (error) {
-    console.log(error);
+client.on('error', (error) => {
+    console.error('MQTT error:', error);
 });
 
-client.on('message', function (topic, message) {
-    // called each time a message is received
+client.on('message', (topic, message) => {
+    // Called each time a message is received
     console.log('Received message:', topic, message.toString());
 });
 
-// publish message 'Hello' to topic 'my/test/topic'
+// Publish a message to a topic
 client.publish('encyclopedia/temperature', 'Hello');
