@@ -44,7 +44,7 @@ buttons.forEach(button => {
 */
 // Include MQTT.js library from a CDN
 const mqtt = require('mqtt');
-
+   
 const options = {
     host: '62aa3c9521834e62b0fbdd628046ee46.s1.eu.hivemq.cloud',
     port: 8883,
