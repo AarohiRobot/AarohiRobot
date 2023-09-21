@@ -42,34 +42,54 @@ buttons.forEach(button => {
   });
 });
 */
-import mqtt from 'mqtt';
+// JavaScript to capture button clicks and send messages using WebSocket
 
-const options = {
-    host: '62aa3c9521834e62b0fbdd628046ee46.s1.eu.hivemq.cloud',
-    port: 8883,
-    protocol: 'mqtts',
-    username: 'Aryan',
-    password: 'AryanMore123'
+const buttons = document.querySelectorAll('.button');
+const output = document.getElementById('output');
+let selectedButton = null;
+
+// Define the WebSocket server URL
+const serverUrl = 'ws://your-websocket-server-url';
+
+// Create a WebSocket instance
+const websocket = new WebSocket(serverUrl);
+
+websocket.addEventListener('open', (event) => {
+  console.log('Connected to WebSocket server');
+});
+
+websocket.addEventListener('error', (event) => {
+  console.error('WebSocket error:', event);
+});
+
+// Function to send commands
+function sendCommand(command) {
+  const direction = command.id;
+  output.textContent = `You clicked ${direction}`;
+
+  if (selectedButton) {
+    selectedButton.style.backgroundColor = '#fff'; // Reset previously selected button
+  }
+
+  selectedButton = command;
+  selectedButton.style.backgroundColor = '#ff9900'; // Highlight the clicked button
+
+  // Send the command to the WebSocket server as a JSON message
+  const message = { command: direction };
+  websocket.send(JSON.stringify(message));
 }
 
-// Initialize the MQTT client
-const client = mqtt.connect(options);
-
-// Setup the callbacks
-client.on('connect', () => {
-    console.log('Connected to HiveMQ Cloud MQTT broker');
-    // Subscribe to a topic if needed
-    // client.subscribe('your-topic');
+// Add click event listeners to buttons
+buttons.forEach((button) => {
+  button.addEventListener('click', () => {
+    sendCommand(button);
+  });
 });
 
-client.on('error', (error) => {
-    console.error('MQTT error:', error);
-});
+// Handle messages received from the WebSocket server (optional)
+websocket.addEventListener('message', (event) => {
+  const message = JSON.parse(event.data);
+  console.log('Received message from server:', message);
 
-client.on('message', (topic, message) => {
-    // Called each time a message is received
-    console.log('Received message:', topic, message.toString());
+  // You can process messages received from the server here
 });
-
-// Publish a message to a topic
-client.publish('encyclopedia/temperature', 'Hello');
