@@ -49,10 +49,10 @@ const output = document.getElementById('output');
 let selectedButton = null;
 
 // Define the WebSocket server URL
-const serverUrl = 'ws://192.168.149.245';
+const serverUrl = 'wss://192.168.149.245';
 
 // Create a WebSocket instance
-const websocket = new WebSocket("ws://192.168.149.245:8765");
+const websocket = new WebSocket("wss://192.168.149.245:8765");
 
 websocket.addEventListener('open', (event) => {
   console.log('Connected to WebSocket server');
