@@ -42,20 +42,20 @@ buttons.forEach(button => {
   });
 });
 */
-// Initialize the MQTT client
+// Include MQTT.js library from a CDN
+const mqtt = require('mqtt');
+
 const options = {
-    host: '62aa3c9521834e62b0fbdd628046ee46.s1.eu.hivemq.cloud',
-    port: 8883,
-    protocol: 'mqtts',
-    username: 'Aryan',
-    password: 'AryanMore123'
+    host: 'test.mosquitto.org',
+    port: 1883, // Default MQTT port for non-secure connections
 }
 
+// Initialize the MQTT client
 const client = mqtt.connect(options);
 
 // Setup the callbacks
 client.on('connect', () => {
-    console.log('Connected to HiveMQ Cloud MQTT broker');
+    console.log('Connected to MQTT broker (test.mosquitto.org)');
     // Subscribe to a topic if needed
     // client.subscribe('your-topic');
 });
@@ -71,3 +71,4 @@ client.on('message', (topic, message) => {
 
 // Publish a message to a topic
 client.publish('encyclopedia/temperature', 'Hello');
+
