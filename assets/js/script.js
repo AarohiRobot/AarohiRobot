@@ -42,17 +42,15 @@ buttons.forEach(button => {
   });
 });
 */
-import * as mqtt from 'mqtt';
-
+// Initialize the MQTT client
 const options = {
     host: '62aa3c9521834e62b0fbdd628046ee46.s1.eu.hivemq.cloud',
     port: 8883,
     protocol: 'mqtts',
-    username: 'aarohi',
-    password: 'Aarohi@pro1'
+    username: 'Aryan',
+    password: 'AryanMore123'
 }
 
-// Initialize the MQTT client
 const client = mqtt.connect(options);
 
 // Setup the callbacks
