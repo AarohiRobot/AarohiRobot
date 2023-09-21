@@ -52,7 +52,7 @@ let selectedButton = null;
 const serverUrl = 'ws://192.168.149.245';
 
 // Create a WebSocket instance
-const websocket = new WebSocket("192.168.149.245");
+const websocket = new WebSocket("ws://192.168.149.245:8765");
 
 websocket.addEventListener('open', (event) => {
   console.log('Connected to WebSocket server');
