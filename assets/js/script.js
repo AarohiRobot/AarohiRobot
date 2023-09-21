@@ -4,7 +4,7 @@
 const buttons = document.querySelectorAll('.button');
 const output = document.getElementById('output');
 let selectedButton = null;
-
+     
 // Define the MQTT broker URL and port (for HiveMQ Cloud)
 const brokerUrl = "62aa3c9521834e62b0fbdd628046ee46.s1.eu.hivemq.cloud";
     
