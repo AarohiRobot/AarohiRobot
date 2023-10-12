@@ -1,53 +1,74 @@
-/* Add CSS styling for buttons and circular container */
 body {
-    text-align: center;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;   
+  background-color: #f2f2f2;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
-.circle-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: linear-gradient(to right, #667eea, #764ba2);
 }
+
 .circle {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    background-color: #3498db;
-    position: relative;
-    transform: rotate(0deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  border: 2px solid #fff;
 }
+
 .button {
-    width: 60px;
-    height: 60px;
-    text-align: center;
-    line-height: 60px;
-    font-size: 18px;
-    background-color: #fff;
-    color: #3498db;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    position: absolute;
-    transform-origin: center;
-    transition: background-color 0.3s ease;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  line-height: 60px;
+  font-size: 18px;
+  background-color: #fff;
+  color: #3498db;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  position: absolute;
+  transform-origin: center;
+  transition: background-color 0.3s ease;
 }
-.button:nth-child(1) { transform: rotate(0deg) translateY(-150px) rotate(0deg); }
-.button:nth-child(2) { transform: rotate(45deg) translateY(-150px) rotate(-45deg); }
-.button:nth-child(3) { transform: rotate(90deg) translateY(-150px) rotate(-90deg); }
-.button:nth-child(4) { transform: rotate(135deg) translateY(-150px) rotate(-135deg); }
-.button:nth-child(5) { transform: rotate(180deg) translateY(-150px) rotate(-180deg); }
-.button:nth-child(6) { transform: rotate(225deg) translateY(-150px) rotate(-225deg); }
-.button:nth-child(7) { transform: rotate(270deg) translateY(-150px) rotate(-270deg); }
-.button:nth-child(8) { transform: rotate(315deg) translateY(-150px) rotate(-315deg); }
+
+.button:nth-child(1) {
+  transform: rotate(0deg) translateY(-150px) rotate(0deg);
+}
+.button:nth-child(2) {
+  transform: rotate(45deg) translateY(-150px) rotate(-45deg);
+}
+.button:nth-child(3) {
+  transform: rotate(90deg) translateY(-150px) rotate(-90deg);
+}
+.button:nth-child(4) {
+  transform: rotate(135deg) translateY(-150px) rotate(-135deg);
+}
+.button:nth-child(5) {
+  transform: rotate(180deg) translateY(-150px) rotate(-180deg);
+}
+.button:nth-child(6) {
+  transform: rotate(225deg) translateY(-150px) rotate(-225deg);
+}
+.button:nth-child(7) {
+  transform: rotate(270deg) translateY(-150px) rotate(-270deg);
+}
+.button:nth-child(8) {
+  transform: rotate(315deg) translateY(-150px) rotate(-315deg);
+}
+
 #output {
-    margin-top: 20px;
-    font-size: 18px;
-    color: #3498db;
+  margin-top: 20px;
+  font-size: 18px;
+  color: #fff;
 }
