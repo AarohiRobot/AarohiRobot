@@ -1,39 +1,29 @@
-body {
-  text-align: center;
-  font-family: Arial, sans-serif;
-}
+// Initialize Firebase
+var firebaseConfig = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_AUTH_DOMAIN",
+    projectId: "YOUR_PROJECT_ID",
+    storageBucket: "YOUR_STORAGE_BUCKET",
+    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+    appId: "YOUR_APP_ID"
+};
+firebase.initializeApp(firebaseConfig);
 
-h1 {
-  margin-top: 50px;
-}
+var form = document.getElementById("room-form");
+var roomNumberInput = document.getElementById("room-number");
+var output = document.getElementById("output");
 
-form {
-  margin-top: 30px;
-}
+form.addEventListener("submit", function(event) {
+    event.preventDefault();
+    var roomNumber = roomNumberInput.value;
+    var databaseRef = firebase.database().ref("room-coordinates/" + roomNumber);
 
-label {
-  font-size: 18px;
-  margin-right: 10px;
-}
-
-input[type="text"] {
-  width: 200px;
-  height: 30px;
-  padding: 5px;
-  font-size: 16px;
-}
-
-button[type="submit"] {
-  background-color: #3498db;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-#output {
-  margin-top: 30px;
-  font-size: 18px;
-  color: #3498db;
-}
+    databaseRef.once("value", function(snapshot) {
+        var coordinates = snapshot.val();
+        if (coordinates) {
+            output.textContent = "Coordinates: " + coordinates;
+        } else {
+            output.textContent = "Coordinates not found.";
+        }
+    });
+});
