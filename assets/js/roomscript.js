@@ -1,45 +1,39 @@
-
-
-// Initialize Firebase (replace with your Firebase project config)
-const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH_DOMAIN",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_STORAGE_BUCKET",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID"
-};
-firebase.initializeApp(firebaseConfig);
-const db = firebase.firestore();
-
-function submitRoom() {
-  const roomInput = document.getElementById("roomInput");
-  const roomNumber = roomInput.value;
-
-  // Fetch the coordinates from Firebase based on the room number
-  db.collection("coordinates")
-    .doc(roomNumber)
-    .get()
-    .then((doc) => {
-      if (doc.exists) {
-        const coordinates = doc.data().coordinates;
-
-        // Display the coordinates on the webpage
-        document.getElementById("coordinatesDisplay").innerText = `Coordinates: ${coordinates}`;
-      } else {
-        // Handle the case where room number doesn't exist in the database
-        document.getElementById("coordinatesDisplay").innerText = "Coordinates not found";
-      }
-    })
-    .catch((error) => {
-      console.error("Error getting document:", error);
-    });
+body {
+  text-align: center;
+  font-family: Arial, sans-serif;
 }
 
-// WebSocket code (if needed) remains the same
+h1 {
+  margin-top: 50px;
+}
 
-function convertRoomToCoordinates(roomNumber) {
-  // Replace this with your actual conversion logic
-  // Example: Convert room number to coordinates
-  return `X: ${roomNumber * 10}, Y: ${roomNumber * 5}`;
+form {
+  margin-top: 30px;
+}
+
+label {
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+input[type="text"] {
+  width: 200px;
+  height: 30px;
+  padding: 5px;
+  font-size: 16px;
+}
+
+button[type="submit"] {
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#output {
+  margin-top: 30px;
+  font-size: 18px;
+  color: #3498db;
 }
