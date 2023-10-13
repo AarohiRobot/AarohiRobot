@@ -1,15 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Room to Coordinate Mapping</title>
-  <link rel="stylesheet" type="text/css" href="assets/css/roomstyle.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Coordinates</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body>
-  <div class="container">
-    <input type="text" id="roomInput" placeholder="Enter Room Number">
-    <button onclick="submitRoom()">Submit</button>
-    <div id="coordinatesDisplay"></div>
-  </div>
-  <script src="assets/js/roomscript.js"></script>
+<body>   
+    <h1>Room Coordinates</h1>
+
+    <form id="room-form">
+        <label for="room-number">Room Number:</label>
+        <input type="text" id="room-number" name="room-number">
+        <button type="submit">Get Coordinates</button>
+    </form>
+
+    <!-- Display the output -->
+    <div id="output"></div>
+
+    <script src="script.js"></script>
 </body>
 </html>
