@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>AAROHI</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+
+<body>
+  <div class="login-container">
+    <div id="user-type">
+        <h1>AAROHI</h1>
+        <br>
+      <h2>Choose Your User Type:</h2>
+      <br>
+      <button id="patient-btn">Patient</button>
+      <button id="doctor-btn">Doctor</button>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("patient-btn").addEventListener("click", function () {
+      window.location.href = "patientlogin.html"; 
+    });
+
+    document.getElementById("doctor-btn").addEventListener("click", function () {
+      window.location.href = "doctorlogin.html"; 
+    });
+  </script>
+</body>
+
+</html>
