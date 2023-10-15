@@ -1,162 +1,53 @@
+               /* Add CSS styling for buttons and circular container */
 body {
-  text-align: center;
-  font-family: "Arial", sans-serif;
-  margin: 0;
-  padding: 0;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;   
 }
-
-/* Hero section styles */
-#hero {
-  width: 100%;
-  height: 75vh;
-  background: url("../img/hero-bg.jpg") top left;
-  background-size: cover;
-  position: relative;
-  background-attachment: fixed; /* Apply this style for screens with a minimum width of 1024px */
-}
-
-#hero:before {
-  content: "";
-  background: rgba(255, 255, 255, 0.6);
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-}
-
-#hero .container {
-  position: relative;
-}
-
-#hero h1 {
-  margin: 0;
-  font-size: 48px;
-  font-weight: 700;
-  line-height: 56px;
-  color: #222222;
-  font-family: "Poppins", sans-serif;
-}
-
-#hero h1 span {
-  color: #106eea;
-}
-
-#hero h2 {
-  color: #555555;
-  margin: 5px 0 30px 0;
-  font-size: 24px;
-  font-weight: 400;
-}
-
-#hero .btn-get-started {
-  font-family: "Roboto", sans-serif;
-  text-transform: uppercase;
-  font-weight: 500;
-  font-size: 14px;
-  letter-spacing: 1px;
-  display: inline-block;
-  padding: 10px 28px;
-  border-radius: 4px;
-  transition: 0.5s;
-  color: #fff;
-  background: #106eea;
-}
-
-#hero .btn-get-started:hover {
-  background: #247cf0;
-}
-
-#hero .btn-watch-video {
-  font-size: 16px;
-  transition: 0.5s;
-  margin-left: 25px;
-  color: #222222;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-}
-
-#hero .btn-watch-video i {
-  color: #106eea;
-  font-size: 32px;
-  transition: 0.3s;
-  line-height: 0;
-  margin-right: 8px;
-}
-
-#hero .btn-watch-video:hover {
-  color: #106eea;
-}
-
-#hero .btn-watch-video:hover i {
-  color: #3b8af2;
-}
-
-/* Circle section styles */
 .circle-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
-
 .circle {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  background-color: #3498db;
-  position: relative;
-  transform: rotate(0deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background-color: #3498db;
+    position: relative;
+    transform: rotate(0deg);
 }
-
 .button {
-  width: 60px;
-  height: 60px;
-  text-align: center;
-  line-height: 60px;
-  font-size: 18px;
-  background-color: #fff;
-  color: #3498db;
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  position: absolute;
-  transform-origin: center;
-  transition: background-color 0.3s ease;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    font-size: 18px;
+    background-color: #fff;
+    color: #3498db;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    transform-origin: center;
+    transition: background-color 0.3s ease;
 }
-
-.button:nth-child(1) {
-  transform: rotate(0deg) translateY(-150px) rotate(0deg);
-}
-.button:nth-child(2) {
-  transform: rotate(45deg) translateY(-150px) rotate(-45deg);
-}
-button:nth-child(3) {
-  transform: rotate(90deg) translateY(-150px) rotate(-90deg);
-}
-button:nth-child(4) {
-  transform: rotate(135deg) translateY(-150px) rotate(-135deg);
-}
-button:nth-child(5) {
-  transform: rotate(180deg) translateY(-150px) rotate(-180deg);
-}
-button:nth-child(6) {
-  transform: rotate(225deg) translateY(-150px) rotate(-225deg);
-}
-button:nth-child(7) {
-  transform: rotate(270deg) translateY(-150px) rotate(-270deg);
-}
-button:nth-child(8) {
-  transform: rotate(315deg) translateY(-150px) rotate(-315deg);
-}
-
+.button:nth-child(1) { transform: rotate(0deg) translateY(-150px) rotate(0deg); }
+.button:nth-child(2) { transform: rotate(45deg) translateY(-150px) rotate(-45deg); }
+.button:nth-child(3) { transform: rotate(90deg) translateY(-150px) rotate(-90deg); }
+.button:nth-child(4) { transform: rotate(135deg) translateY(-150px) rotate(-135deg); }
+.button:nth-child(5) { transform: rotate(180deg) translateY(-150px) rotate(-180deg); }
+.button:nth-child(6) { transform: rotate(225deg) translateY(-150px) rotate(-225deg); }
+.button:nth-child(7) { transform: rotate(270deg) translateY(-150px) rotate(-270deg); }
+.button:nth-child(8) { transform: rotate(315deg) translateY(-150px) rotate(-315deg); }
 #output {
-  margin-top: 20px;
-  font-size: 18px;
-  color: #3498db;
+    margin-top: 20px;
+    font-size: 18px;
+    color: #3498db;
 }
