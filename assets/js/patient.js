@@ -15,7 +15,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth(app);
-const successPageURL = "patientLS.html"; // Replace with your actual URL
+const successPageURL = "index-3.html"; // Replace with your actual URL
 
 
 const submitButton = document.getElementById("submit");
