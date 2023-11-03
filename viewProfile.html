@@ -2,7 +2,6 @@
 <html>
 <head>
   <link rel="stylesheet" href="style.css">
-  <link href="assets/css/viewProfile.css" rel="stylesheet">
   <style>
     body {
       display: flex;
@@ -30,10 +29,17 @@
       height: 150px; /* Adjust the size as needed */
       object-fit: cover;
     }
+    .button-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin-top: 10px; /* Adjust the top margin to control the vertical position */
+    }
   </style>
 </head>
 <body>
-  <h2>Patient Profile</h2>
+  <h2>User Profile</h2>
 
   <div class="profile-container">
     <img id="profileImage" src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="">
@@ -65,7 +71,12 @@
     <input id="email" type="email">
   </div>
 
-  <button id="loadProfileButton">Load Profile</button>
+  <div class="button-container">
+    <button id="loadProfileButton">Load Profile</button>
+    <button id="editProfileButton">Edit Profile</button>
+  </div>
+
+  
 
   <!-- Load Firebase Compat -->
   <script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-app-compat.js"></script>
@@ -129,6 +140,11 @@
         .catch((error) => {
           alert("Error loading profile: " + error.message);
         });
+    });
+
+    editProfileButton.addEventListener("click", () => {
+      // Redirect to the editProfile.html page
+      window.location.href = "editPatientprofile.html";
     });
   </script>
 </body>
