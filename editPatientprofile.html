@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <link href="assets/css/editPatientprofile.css" rel="stylesheet">
+</head>
+<body>
+    <h2>Edit Patient Profile</h2>
+
+    <form id="profile-form">
+        <div class="form-row">
+            <label for="firstName">First Name:</label>
+            <input id="firstName" type="text">
+        </div>
+
+        <div class="form-row">
+            <label for="lastName">Last Name:</label>
+            <input id="lastName" type="text">
+        </div>
+
+        <div class="form-row">
+            <label for="birthday">Birthdate:</label>
+            <input id="birthday" type="text">
+        </div>
+
+        <div class="form-row">
+            <label for="occupation">Occupation:</label>
+            <input id="occupation" type="text">
+        </div>
+
+        <div class="form-row">
+            <label for="country">Country:</label>
+            <input id="country" type="text">
+        </div>
+
+        <div class="form-row">
+            <label for="phone">Phone Number:</label>
+            <input id="phone" type="text">
+        </div>
+
+        <div class="form-row">
+            <label for="mobile">Mobile Number:</label>
+            <input id="mobile" type="text">
+        </div>
+
+        <div class="form-row">
+            <label for="email">Email:</label>
+            <input id="email" type="email">
+        </div>
+
+        <div class="form-row">
+            <label for="password">Password:</label>
+            <input id="password" type="password">
+        </div>
+
+        <div class="form-row">
+            <label for="imageInput">Profile Image:</label>
+            <input id="imageInput" type="file">
+        </div>
+
+        <button id="saveProfileButton">Save</button>
+    </form>
+
+    <!-- Load Firebase Compat -->
+    <script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-storage-compat.js"></script>
+
+    <script type="module">
+        // Initialize Firebase
+        const firebaseConfig = {
+          apiKey: "AIzaSyBUWJb2td8bmMZKUAUkEgSG118sQrePeu8",
+          authDomain: "patient-login-d3926.firebaseapp.com",
+          databaseURL: "https://patient-login-d3926-default-rtdb.firebaseio.com",
+          projectId: "patient-login-d3926",
+          storageBucket: "patient-login-d3926.appspot.com",
+          messagingSenderId: "808367885979",
+          appId: "1:808367885979:web:d9954991b1591be3d9003e"
+        };
+
+        const app = firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+        const auth = firebase.auth();
+        const storage = firebase.storage();
+
+        const saveButton = document.getElementById("saveProfileButton");
+        const imageInput = document.getElementById("imageInput");
+
+        function saveProfile() {
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            const user = auth.currentUser;
+
+            const credential = firebase.auth.EmailAuthProvider.credential(email, password);
+
+            user.reauthenticateWithCredential(credential)
+                .then(() => {
+                    const firstName = document.getElementById("firstName").value;
+                    const lastName = document.getElementById("lastName").value;
+                    const birthday = document.getElementById("birthday").value;
+                    const occupation = document.getElementById("occupation").value;
+                    const country = document.getElementById("country").value;
+                    const phone = document.getElementById("phone").value;
+                    const mobile = document.getElementById("mobile").value;
+
+                    const imageFile = imageInput.files[0];
+
+                    const userRef = db.collection("profiles").doc(email);
+
+                    userRef.get()
+                        .then((doc) => {
+                            if (doc.exists) {
+                                userRef.set({
+                                    firstName,
+                                    lastName,
+                                    birthday,
+                                    occupation,
+                                    country,
+                                    phone,
+                                    mobile
+                                })
+                                .then(() => {
+                                    const storageRef = storage.ref(`profile_images/${email}`);
+                                    const chunkSize = 1 * 1024 * 1024; // 1MB chunks (adjust as needed)
+
+                                    // Function for uploading in chunks
+                                    function uploadChunk(start, end) {
+                                        const blob = imageFile.slice(start, end);
+                                        storageRef.put(blob, { contentType: imageFile.type })
+                                            .then((snapshot) => {
+                                                if (end < imageFile.size) {
+                                                    uploadChunk(end, end + chunkSize);
+                                                } else {
+                                                    // All chunks uploaded successfully
+                                                    snapshot.ref.getDownloadURL()
+                                                        .then((downloadURL) => {
+                                                            userRef.update({
+                                                                profileImageURL: downloadURL
+                                                            })
+                                                            .then(() => {
+                                                                alert("Profile and image saved successfully");
+                                                            })
+                                                            .catch((error) => {
+                                                                alert("Error updating profile with image URL: " + error.message);
+                                                            });
+                                                        })
+                                                        .catch((error) => {
+                                                            alert("Error getting image download URL: " + error.message);
+                                                        });
+                                                }
+                                            })
+                                            .catch((error) => {
+                                                alert("Error uploading image: " + error.message);
+                                            });
+                                    }
+
+                                    uploadChunk(0, chunkSize);
+                                })
+                                .catch((error) => {
+                                    alert("Error saving profile: " + error.message);
+                                });
+                            } else {
+                                userRef.set({
+                                    firstName,
+                                    lastName,
+                                    birthday,
+                                    occupation,
+                                    country,
+                                    phone,
+                                    mobile
+                                })
+                                .then(() => {
+                                    const storageRef = storage.ref(`profile_images/${email}`);
+                                    const chunkSize = 1 * 1024 * 1024; // 1MB chunks (adjust as needed)
+
+                                    // Function for uploading in chunks
+                                    function uploadChunk(start, end) {
+                                        const blob = imageFile.slice(start, end);
+                                        storageRef.put(blob, { contentType: imageFile.type })
+                                            .then((snapshot) => {
+                                                if (end < imageFile.size) {
+                                                    uploadChunk(end, end + chunkSize);
+                                                } else {
+                                                    // All chunks uploaded successfully
+                                                    snapshot.ref.getDownloadURL()
+                                                        .then((downloadURL) => {
+                                                            userRef.update({
+                                                                profileImageURL: downloadURL
+                                                            })
+                                                            .then(() => {
+                                                                alert("Profile created and image saved successfully");
+                                                            })
+                                                            .catch((error) => {
+                                                                alert("Error updating profile with image URL: " + error.message);
+                                                            });
+                                                        })
+                                                        .catch((error) => {
+                                                            alert("Error getting image download URL: " + error.message);
+                                                        });
+                                                }
+                                            })
+                                            .catch((error) => {
+                                                alert("Error uploading image: " + error.message);
+                                            });
+                                    }
+
+                                    uploadChunk(0, chunkSize);
+                                })
+                                .catch((error) => {
+                                    alert("Error creating and saving profile: " + error.message);
+                                });
+                            }
+                        })
+                        .catch((error) => {
+                            alert("Error checking profile: " + error.message);
+                        });
+                })
+                .catch((error) => {
+                    alert("Re-authentication failed: " + error.message);
+                });
+        }
+
+        saveButton.addEventListener("click", saveProfile);
+    </script>
+</body>
+</html>
