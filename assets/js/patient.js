@@ -15,7 +15,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth(app);
-const successPageURL = "https://example.com/success-page.html"; // Replace with your actual URL
+const successPageURL = "patientLS.html"; // Replace with your actual URL
 
 
 const submitButton = document.getElementById("submit");
@@ -24,6 +24,7 @@ const emailInput = document.getElementById("email");
 const passwordInput = document.getElementById("password");
 const main = document.getElementById("main");
 const createacct = document.getElementById("create-acct");
+
 
 const signupEmailIn = document.getElementById("email-signup");
 const confirmSignupEmailIn = document.getElementById("confirm-email-signup");
@@ -70,8 +71,6 @@ createacctbtn.addEventListener("click", function () {
     }
 });
 
-// ... (previous code) ...
-
 submitButton.addEventListener("click", function () {
     email = emailInput.value;
     password = passwordInput.value;
@@ -80,15 +79,14 @@ submitButton.addEventListener("click", function () {
         .then((userCredential) => {
             // Signed in
             const user = userCredential.user;
-            // Redirect to another website after successful login
-            window.location.href = "index-3.html"; // Replace with the desired URL
+            window.alert("LOGIN SUCCESSFUL ! Welcome back!");
+            localStorage.setItem("userEmail", email);
+            window.location.href = successPageURL;
         })
         .catch((error) => {
-            window.alert("Error occurred. Try again.");
+            window.alert("Incorrect Username or Password !! Try again.");
         });
 });
-
-// ... (rest of the code) ...
 
 signupButton.addEventListener("click", function () {
     main.style.display = "none";
