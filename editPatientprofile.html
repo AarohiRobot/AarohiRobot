@@ -20,7 +20,7 @@
         </div>
 
         <div class="form-row">
-            <label for "birthday">Birthdate:</label>
+            <label for="birthday">Birthdate:</label>
             <input id="birthday" type="text">
         </div>
 
@@ -34,7 +34,7 @@
             <input id="country" type="text">
         </div>
 
-        <div class "form-row">
+        <div class="form-row">
             <label for="phone">Phone Number:</label>
             <input id="phone" type="text">
         </div>
@@ -46,7 +46,7 @@
 
         <div class="form-row">
             <label for="email">Email:</label>
-            <input id="email" type="email" disabled>
+            <input id="email" type="email">
         </div>
 
         <div class="form-row">
@@ -62,6 +62,8 @@
     <script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-storage-compat.js"></script>
+
+    <script src="patient.js"></script> <!-- Assuming you have a patient.js file with email variable -->
 
     <script type="module">
         // Initialize Firebase
@@ -80,17 +82,15 @@
         const auth = firebase.auth();
         const storage = firebase.storage();
 
+        // Populate the email field based on data from patient.js
+        document.getElementById("email").value = email;
+
         const saveButton = document.getElementById("saveProfileButton");
         const imageInput = document.getElementById("imageInput");
 
         function saveProfile() {
             const email = document.getElementById("email").value;
             const user = auth.currentUser;
-
-            if (user.email !== email) {
-                alert("You cannot change your email address.");
-                return;
-            }
 
             const firstName = document.getElementById("firstName").value;
             const lastName = document.getElementById("lastName").value;
