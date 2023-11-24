@@ -2061,6 +2061,7 @@ section {
 .team .team-member .member-img {
   border-radius: 8px;
   overflow: hidden;
+  max-width: 100%; /* Ensure images don't exceed container width */
 }
 
 .team .team-member .social {
@@ -2073,6 +2074,7 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 1; /* Ensure social icons appear above the image */
 }
 
 .team .team-member .social a {
@@ -2111,6 +2113,7 @@ section {
   margin: -50px 20px 0 20px;
   position: relative;
   border-radius: 8px;
+  overflow: hidden; /* Ensure content doesn't overflow */
 }
 
 .team .team-member .member-info h4 {
@@ -2137,6 +2140,7 @@ section {
 .team .team-member:hover .social {
   opacity: 1;
 }
+
 
 /*--------------------------------------------------------------
 # Recent Blog Posts
